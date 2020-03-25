@@ -9,6 +9,7 @@ import { AuthService } from '../../_services/auth.service';
 export class LoginComponent implements OnInit {
 
 	model: any = {};
+	errorMessage: String = '';
 
 	constructor(
 		private authService: AuthService
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
 				this.authService.setUser(response);
 			}
 		}, error => {
-			console.error(error);
+			this.errorMessage = error;
 		});
 	}
 

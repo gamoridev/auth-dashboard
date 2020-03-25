@@ -26,7 +26,7 @@ export class AuthService {
 
 	// Handle erros da api
 	handleError(error: HttpErrorResponse) {
-		console.log(error)
+		console.log('error', error)
 		return throwError(
 			'Ocorreu um erro ao realizar a requisição. Tente novamente mais tarde!');
 	}
@@ -62,7 +62,7 @@ export class AuthService {
 		this.router.navigate(['/login']);
 	}
 
-	// Recupera dado da API para o Dashboard
+	// Recupera dados de API para o Dashboard
 	getData(data): Observable<LoginResponse> {
 		return this.http
 		.post<LoginResponse>(this.API_PATH, data, this.HTTP_HEADER)

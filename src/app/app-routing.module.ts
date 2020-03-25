@@ -7,7 +7,7 @@ import { LoginComponent } from './_component/login/login.component';
 const routes: Routes = [
 {
 	path: 'dashboard',
-	canActivate: [AuthGuard],
+	//canActivate: [AuthGuard], torna o componente necessário de autenticação
 	component: DashboardComponent
 },
 {

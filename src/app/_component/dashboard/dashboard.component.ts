@@ -1,7 +1,3 @@
-
-38
-39
-// dashboard.component.ts
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../_services/auth.service';
 
@@ -13,21 +9,20 @@ import { AuthService } from '../../_services/auth.service';
 export class DashboardComponent implements OnInit {
 	model: any = {};
 	
-	dataFromServer: any = [];
-	
 	constructor(
 		private authService: AuthService
 		) { }
 	
 	ngOnInit() {
-		this.getSomePrivateStuff();
+		//Tirar o comentario, checa login
+		//this.getSomePrivateStuff();
 	}
 	
 	getSomePrivateStuff() {
 		this.model.action = 'stuff';
 		this.authService.getData(this.model).subscribe(response => {
 			if (response.status === 'success') {
-				this.dataFromServer = response['data']['Coords'];
+				console.log(response.data)
 			}
 		}, error => {
 			this.authService.logout();
